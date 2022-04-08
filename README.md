@@ -10,6 +10,11 @@
 ![Screen Shot 2022-04-08 at 1 56 18 PM](https://user-images.githubusercontent.com/42722554/162528923-22cbca08-3d04-4414-8c84-d443ab73f42f.png)
 ![Screen Shot 2022-04-08 at 1 56 28 PM](https://user-images.githubusercontent.com/42722554/162528928-44ef4812-44fd-444d-90dc-be1952f01f44.png)
 
+## Trello
+https://trello.com/invite/b/nUJVFqvG/c1177e873c7cf077fcf626ca5e0d2912/project-2-roadtripper
+
+## Routes
+![Screen Shot 2022-04-08 at 3 49 19 PM](https://user-images.githubusercontent.com/42722554/162543751-062f8a8f-4d23-4374-810a-d4b6f52a7a79.png)
 
 
 # passport-boilerplate
