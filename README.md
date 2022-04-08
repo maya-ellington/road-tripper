@@ -5,8 +5,8 @@
 
 ## Wireframe 
 
-![Screen Shot 2022-04-08 at 1 36 02 PM](https://user-images.githubusercontent.com/42722554/162527607-9c556020-126c-40da-8209-6f9e2d00bd0f.png)
-![Screen Shot 2022-04-08 at 1 36 16 PM](https://user-images.githubusercontent.com/42722554/162527614-9f0755f8-17c8-4047-ac5b-8fadde83facf.png)
+![Screen Shot 2022-04-08 at 1 57 51 PM](https://user-images.githubusercontent.com/42722554/162529062-8ad66339-25d5-4bdb-a6c0-1b3013d11382.png)
+![Screen Shot 2022-04-08 at 1 57 59 PM](https://user-images.githubusercontent.com/42722554/162529055-f75e3b59-fd05-44e1-bfbb-07f69f8d8d6c.png)
 ![Screen Shot 2022-04-08 at 1 56 18 PM](https://user-images.githubusercontent.com/42722554/162528923-22cbca08-3d04-4414-8c84-d443ab73f42f.png)
 ![Screen Shot 2022-04-08 at 1 56 28 PM](https://user-images.githubusercontent.com/42722554/162528928-44ef4812-44fd-444d-90dc-be1952f01f44.png)
 
