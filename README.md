@@ -1,7 +1,8 @@
 # ROAD TRIPPER
 
 ## ERD
-![Screen Shot 2022-04-08 at 12 09 59 PM](https://user-images.githubusercontent.com/42722554/162508848-5bfa73eb-7e2d-4493-a3f5-b2d4fbf5775a.png)
+![Screen Shot 2022-04-08 at 3 27 08 PM](https://user-images.githubusercontent.com/42722554/162543883-546670d4-497c-43b6-9f60-1a983700b1eb.png)
+
 
 ## Wireframe 
 
