@@ -1,3 +1,17 @@
+# ROAD TRIPPER
+
+## ERD
+![Screen Shot 2022-04-08 at 12 09 59 PM](https://user-images.githubusercontent.com/42722554/162508848-5bfa73eb-7e2d-4493-a3f5-b2d4fbf5775a.png)
+
+## Wireframe 
+
+![Screen Shot 2022-04-08 at 1 36 02 PM](https://user-images.githubusercontent.com/42722554/162527607-9c556020-126c-40da-8209-6f9e2d00bd0f.png)
+![Screen Shot 2022-04-08 at 1 36 16 PM](https://user-images.githubusercontent.com/42722554/162527614-9f0755f8-17c8-4047-ac5b-8fadde83facf.png)
+![Screen Shot 2022-04-08 at 1 36 25 PM](https://user-images.githubusercontent.com/42722554/162527618-6a0e4b18-7cb0-4385-b118-ddf018828113.png)
+![Screen Shot 2022-04-08 at 1 36 33 PM](https://user-images.githubusercontent.com/42722554/162527623-1df3aa22-9c97-45d3-be38-e450294b0070.png)
+
+
+
 # passport-boilerplate
 
 
