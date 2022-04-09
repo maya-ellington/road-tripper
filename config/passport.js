@@ -9,7 +9,7 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    user.findOne({googleId: profile.id}, function(err, user){
+    User.findOne({googleId: profile.id}, function(err, user){
 
       if(user) return cb(null, user);
       if (err) return cb(err);
@@ -18,7 +18,7 @@ passport.use(new GoogleStrategy({
         name: profile.displayName,
         googleId: profile.id,
         email: profile.emails[0].value,
-        avatar: profile.photos[o].value
+        avatar: profile.photos[0].value
       }, function(err, createdUser){
 
         if(user) return cb(null, user);
@@ -34,13 +34,10 @@ passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-
-  // Find your User, using your model, and then call done(err, whateverYourUserIsCalled)
-  // When you call this done function passport assigns the user document to req.user, which will 
-  // be availible in every Single controller function, so you always know the logged in user
-
+passport.deserializeUser(function(userId, cb){
+	User.findById(userId, function(err, user){
+		if(err) return cb(err);
+		cb(null, user); // <- this assings the user document we just found to the request object
+		// assinging the user to req.user
+	})
 });
-
-
-
