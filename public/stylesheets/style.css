@@ -1,18 +1,5 @@
-.brand-logo {
-  margin-left: 15px;
-}
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
-}
-
 #search-row form {
   padding-top: 20px;
-}
-
-.student-name {
-  position: relative;
-  top: -5px;
 }
 
 .collection-item form {
@@ -20,11 +7,15 @@
 }
 
 #map {
-  width: 1000px;
+  width: 100vw;
   height: 500px;
 }
 #footer {
   position: absolute;
   bottom: 0;
   width: 100vw;
+}
+
+body {
+  overflow: hidden; 
 }

@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <title>RoadTripper</title>
 </head>
 <body>
-  <nav>
+  <header class="bg-dark p-2">
+    <div class="container">
+        <h1 class="text-light">Road Tripper</h1>
+    </div>    
     <a href="/trips/all">View All Trips</a>
-    <% if (user) { %>
-      <a href="/">Add New Starting Point</a>
-      <a href="/logout">LOG OUT</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src=""></a>
-    <% } %>
-  </nav>
-  <main>
-    <h1>Placeholder</h1>
+        <% if (user) { %>
+          <a href="/">Add New Starting Point</a>
+          <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;<img src=""></a>
+        <% } %>
+</header>   
+</body>
