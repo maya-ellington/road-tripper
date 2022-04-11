@@ -18,3 +18,13 @@
 .collection-item form {
   margin-top: -5px;
 }
+
+#map {
+  width: 1000px;
+  height: 500px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}

@@ -17,6 +17,7 @@ const app = express();
 require('./config/database');
 // configure Passport
 require('./config/passport');
+
 const indexRouter = require('./routes/index');
 
 
@@ -50,6 +51,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
+app.use('/api', require('./routes/tripsBegin'));
 
 
 // invalid request, send 404 page
