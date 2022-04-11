@@ -7,8 +7,9 @@ module.exports = {
 
 async function addTripBegin(req, res, next){
     try {
+        console.log(req.body)
         let tripBegin = await TripBegin.create(req.body);
-
+console.log(tripBegin)
         return res.status(200).json({
             success: true,
             data: tripBegin

@@ -9,6 +9,7 @@
 #map {
   width: 100vw;
   height: 500px;
+  margin-top: 50px;
 }
 #footer {
   position: absolute;
@@ -18,4 +19,11 @@
 
 body {
   overflow: hidden; 
+}
+
+#form  {
+  display: grid;
+  grid-column: span 2;
+  width: 10rem;
+
 }

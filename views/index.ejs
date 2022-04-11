@@ -9,13 +9,10 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.0/mapbox-gl.css' rel='stylesheet' /></head>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-
 </head>
 <body>
-    <section style="height: 23vh;">
-                <h1 class="title" style="margin-bottom: 40px;">
-                    Start of Road Trip Locations
-                </h1>
+    <section style="height: 23vh; margin-left: 20px;">
+
                 <p class="subtitle">
                     This map shows where people have started their road trip journeys! 
                     <br>Click locations to see where they went, and add your road trip journey to the map!
@@ -25,14 +22,16 @@
         
         <section>
             <form id="form">
-                <div class="container" style="display: flex;">
                     <div>
+                        <label>Where did you start your road trip?</label>
                         <input id="tripBegin" type="text" placeholder="Starting Point">
+                        
+                        <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
+                        <input id="tripTitle" type="text" placeholder="From where to where?">
                     </div>
                     <button type="submit" style="margin-left:15px; margin-bottom:30px;">
-                        Add Your Road Trip Starting Point!
+                        Add Your Road Trip!
                     </button>
-                </div>
             </form> 
         </section>
     </section>

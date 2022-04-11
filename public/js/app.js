@@ -82,18 +82,12 @@ async function showMap() {
     });
   });
 }
+
+
 //NEED TO ADJUST THIS SO THAT IT LOADS AUTOMATICALLY
 // Handle user input
 const form = document.getElementById("form");
-const tripBegin = document.getElementById("tripBegin");
-
-function handleChange() {
-  if (tripBegin.value === "") {
-    tripBegin.style.border = "3px solid lightcoral";
-  } else {
-    tripBegin.style.border = "none";
-  }
-}
+let tripBegin = document.getElementById("tripBegin");
 
 // Send POST to API to add trips begin locations
 async function addTripBegin(e) {
@@ -101,16 +95,13 @@ async function addTripBegin(e) {
 
   if (tripBegin.value === "") {
     tripBegin.placeholder =
-      "Please add the town/city you started your road trip from!";
+      "Location where trip begins";
+    //   console.log('i am here')
     return;
   }
 
-  const sendBody = {
-    address: tripBegin.value,
-  };
-
   try {
-    tripBegin.value = "";
+    console.log(tripBegin.value, 'try')
     tripBegin.placeholder = "Loading...";
 
     const res = await fetch("/api", {
@@ -118,32 +109,41 @@ async function addTripBegin(e) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(sendBody),
+      body: JSON.stringify({address: tripBegin.value}),
     });
 
     if (res.status === 400) {
       throw Error;
     }
 
-    if (res.status === 200) {
-      tripBegin.style.border = "none";
+    else if (res.status === 200) {
+        console.log(tripBegin.value, 'res status')
+        console.log(res)
+    //     console.log(tripBegin.placeholder)
+    //   tripBegin.style.border = "none";
       tripBegin.placeholder = "Succesfully added!";
 
+      tripBegin.value = ""; //ADDED TO TRY TO RESET
+    //   console.log(tripBegin.value, 'after empty string')
+    //   tripBegin.placeholder = "new entry";
+
+    //   res.status = null;
+
       // Retrieve updated data
-      tripBegin = await getTripsBegin();
+      let allTrips = await getTripsBegin();
+    //   console.log(tripBegin.value, '151')
 
       map.getSource("api").setData({
         type: "FeatureCollection",
-        features: tripBegin,
+        features: allTrips,
       });
-    }
+    } 
   } catch (err) {
     tripBegin.placeholder = err;
     return;
   }
 }
 
-tripBegin.addEventListener("keyup", handleChange);
 form.addEventListener("submit", addTripBegin);
 
 
