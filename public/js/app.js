@@ -62,8 +62,8 @@ async function showMap() {
 };
 
 // Handle user input
-let form = document.getElementById('form');
-let tripBegin = document.getElementById('tripBegin');
+const form = document.getElementById('form');
+const tripBegin = document.getElementById('tripBegin');
 
 function handleChange() {
     if (tripBegin.value === '') {
@@ -111,7 +111,7 @@ async function addTripBegin(e) {
 
             map.getSource('api').setData({
                 type: 'FeatureCollection',
-                features: tripsBegin
+                features: tripBegin
             });
         }
     } catch (err) {
