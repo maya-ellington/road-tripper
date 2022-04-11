@@ -6,6 +6,9 @@ const TripBeginSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Add a road trip starting point']
     },
+    description: {
+        type: String,
+    },
     location: {
         type: {
             type: String,

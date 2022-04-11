@@ -1,8 +1,13 @@
 const TripBegin = require('../models/TripBegin');
 
-exports.addTripBegin = async (req, res, next) => {
+module.exports = {
+    addTripBegin,
+    getTripsBegin
+}
+
+async function addTripBegin(req, res, next){
     try {
-        const tripBegin = await TripBegin.create(req.body);
+        let tripBegin = await TripBegin.create(req.body);
 
         return res.status(200).json({
             success: true,
@@ -14,7 +19,7 @@ exports.addTripBegin = async (req, res, next) => {
     }
 };
 
-exports.getTripsBegin = async (req, res, next) => {
+async function getTripsBegin(req, res, next){
     try {
         const tripsBegin = await TripBegin.find();
 
