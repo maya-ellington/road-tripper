@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<div>Road Trip Start/End: </div>
+
+<h3>trip title here</h3>
+
+<form action="/trips/<%=trips._id %>/new" method="POST">
+  <label>Road Trip Stops:</label>
+  <input type="text" name="stopsEnRoute">
+  <label>Total Drive Hours:</label>
+  <input type="number" name="tripHours">
+  <label>Total Trip Days:</label>
+  <input type="number" name="tripDays">
+  <label>Road Trip Details/Story:</label>
+  <input type="text" name="story">
+
+
+<%- include('../partials/footer') %>

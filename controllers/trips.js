@@ -4,7 +4,8 @@ const Trip = require('../models/TripBegin');
 module.exports = {
     // create
     index,
-    show
+    show, 
+    // new: newTripDetail
 }
 
 
@@ -20,7 +21,7 @@ function index(req, res) {
   
   function show(req, res) {
     Trip.findById(req.params.id)
-    .populate('tripDetails') 
+    // .populate('tripDetails') 
     .exec(function(err, trip) {
       // Native MongoDB approach 
       Trip.find(
@@ -33,6 +34,13 @@ function index(req, res) {
      );
     });
   }
+
+
+  //NOT CORRECT...
+//   function newTripDetail(req, res) {
+//     res.render("trips/:id/new", { title: "Add Trip Details", trip });
+//   }
+  
 
 // function create(req, res) {
 

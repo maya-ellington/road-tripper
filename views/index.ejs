@@ -11,33 +11,41 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
+    <button onclick="showMap()">ShowMap</button>
     <section style="height: 23vh; margin-left: 20px;">
 
                 <p class="subtitle">
                     This map shows where people have started their road trip journeys! 
-                    <br>Click locations to see where they went, and add your road trip journey to the map!
+                    <br>Click locations to see where they went, and login to add your road trip journey to the map.
                 </p>
             </div>
             </div>
-        
+            
         <section>
-            <form id="form">
-                    <div>
-                        <label>Where did you start your road trip?</label>
-                        <input id="tripBegin" type="text" placeholder="Starting Point">
-                        
-                        <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
-                        <input id="tripTitle" type="text" placeholder="From where to where?">
-                    </div>
-                    <button type="submit" style="margin-left:15px; margin-bottom:30px;">
-                        Add Your Road Trip!
-                    </button>
-            </form> 
+            
+                <form id="form">
+                    <% if (user) { %>
+                        <div>
+                            <label>Where did you start your road trip?</label>
+                            <input id="tripBegin" type="text" placeholder="Starting Point">
+                            
+                            <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
+                            <input id="tripTitle" type="text" placeholder="From where to where?">
+                        </div>
+                        <button type="submit" style="margin-left:15px; margin-bottom:30px;">
+                            Add Your Road Trip!
+                        </button>
+                        <% } %>
+                </form> 
+           
         </section>
     </section>
-          <div id="map" style="height: 70vh;"></div>
+
+    <div id="map" style="height: 70vh;"></div>
+    
+     
       
-      <script src="/js/app.js"></script>
 </body>
+<script defer src="/js/app.js"></script>
 </html>
 <%- include('./partials/footer') %>

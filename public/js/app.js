@@ -20,7 +20,7 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3>${feature.properties.tripTitle}</h3><p><a href='/trips/${feature.properties.tripId}'>View Trip</a></p>`
+    `<h3>${feature.properties.tripTitle}</h3><p><a href='/trips/${feature.properties.tripId}'>View Trip</a></p><p><a href='/trips/${feature.properties.tripId}/new'>Add Trip Details</a></p>`
   )
   .addTo(map);
 });
@@ -28,9 +28,10 @@ map.on('click', (event) => {
 
 // Get trips begin locations from API
 async function getTripsBegin() {
+    
   const res = await fetch("/api/trips");
   const data = await res.json();
-// console.log(data, 'data')
+console.log(data, 'data')
   let tripsBegin = data.data.map((tripBegin) => ({
     type: "Feature",
     geometry: {
@@ -49,11 +50,12 @@ async function getTripsBegin() {
 
   return tripsBegin;
 }
-
+console.log('something')
 // Show trips begin locations on map
 async function showMap() {
+    console.log('im here')
   let tripsBegin = await getTripsBegin();
-// console.log(tripsBegin, 'tripsBegin')
+console.log(tripsBegin, 'tripsBegin')
   map.on("load", () => {
     map.addSource("api", {
       type: "geojson",
@@ -93,11 +95,11 @@ let tripTitle = document.getElementById("tripTitle");
 // Send POST to API to add trips begin locations
 async function addTripBegin(e) {
   e.preventDefault();
-
+console.log('addtrip')
   if (tripBegin.value === "") {
     tripBegin.placeholder =
       "Location where trip begins";
-    //   console.log('i am here')
+      console.log('i am here')
     return;
   }
 
@@ -132,6 +134,7 @@ async function addTripBegin(e) {
 
       // Retrieve updated data
       let allTrips = await getTripsBegin();
+      
     //   console.log(tripBegin.value, '151')
 
       map.getSource("api").setData({

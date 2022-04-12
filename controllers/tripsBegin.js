@@ -7,8 +7,9 @@ module.exports = {
 
 async function addTripBegin(req, res, next){
     try {
-        console.log(req.body, 'rec.body')
+        // console.log(req.body)
         let tripBegin = await TripBegin.create(req.body);
+// console.log(tripBegin)
         return res.status(200).json({
             success: true,
             data: tripBegin
@@ -24,6 +25,7 @@ async function getTripsBegin(req, res, next){
         const tripsBegin = await TripBegin.find();
 
         return res.status(200).json({
+            succes: true,
             count: tripsBegin.length,
             data: tripsBegin
         })
