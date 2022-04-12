@@ -17,11 +17,10 @@ map.on('click', (event) => {
       return;
     }
     const feature = features[0];
-    console.log(feature.geometry.coordinates)
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3>${feature.geometry.coordinates}</h3><p>${feature.properties.description}</p>`
+    `<h3>${feature.properties.tripTitle}</h3><p><a href='/trips/${feature.properties.tripId}'>View Trip</a></p>`
   )
   .addTo(map);
 });
@@ -29,9 +28,9 @@ map.on('click', (event) => {
 
 // Get trips begin locations from API
 async function getTripsBegin() {
-  const res = await fetch("/api");
+  const res = await fetch("/api/trips");
   const data = await res.json();
-
+// console.log(data, 'data')
   let tripsBegin = data.data.map((tripBegin) => ({
     type: "Feature",
     geometry: {
@@ -43,6 +42,8 @@ async function getTripsBegin() {
     },
     properties: {
       city: tripBegin.location.city,
+      tripTitle: tripBegin.tripTitle, 
+      tripId: tripBegin._id
     },
   }));
 
@@ -52,7 +53,7 @@ async function getTripsBegin() {
 // Show trips begin locations on map
 async function showMap() {
   let tripsBegin = await getTripsBegin();
-
+// console.log(tripsBegin, 'tripsBegin')
   map.on("load", () => {
     map.addSource("api", {
       type: "geojson",
@@ -84,10 +85,10 @@ async function showMap() {
 }
 
 
-//NEED TO ADJUST THIS SO THAT IT LOADS AUTOMATICALLY
 // Handle user input
 const form = document.getElementById("form");
 let tripBegin = document.getElementById("tripBegin");
+let tripTitle = document.getElementById("tripTitle");
 
 // Send POST to API to add trips begin locations
 async function addTripBegin(e) {
@@ -101,7 +102,7 @@ async function addTripBegin(e) {
   }
 
   try {
-    console.log(tripBegin.value, 'try')
+    // console.log(tripBegin.value, 'try')
     tripBegin.placeholder = "Loading...";
 
     const res = await fetch("/api", {
@@ -109,7 +110,7 @@ async function addTripBegin(e) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({address: tripBegin.value}),
+      body: JSON.stringify({address: tripBegin.value, tripTitle: tripTitle.value}),
     });
 
     if (res.status === 400) {
@@ -117,17 +118,17 @@ async function addTripBegin(e) {
     }
 
     else if (res.status === 200) {
-        console.log(tripBegin.value, 'res status')
-        console.log(res)
+        // console.log(tripBegin.value, 'res status')
+        // console.log(res)
     //     console.log(tripBegin.placeholder)
     //   tripBegin.style.border = "none";
       tripBegin.placeholder = "Succesfully added!";
+      tripTitle.placeholder = "Succesfully added!";
 
-      tripBegin.value = ""; //ADDED TO TRY TO RESET
+      tripBegin.value = ""; //reset value
+      tripTitle.value = "";
     //   console.log(tripBegin.value, 'after empty string')
     //   tripBegin.placeholder = "new entry";
-
-    //   res.status = null;
 
       // Retrieve updated data
       let allTrips = await getTripsBegin();
@@ -143,7 +144,7 @@ async function addTripBegin(e) {
     return;
   }
 }
-
+// console.log(tripTitle, 'here')
 form.addEventListener("submit", addTripBegin);
 
 

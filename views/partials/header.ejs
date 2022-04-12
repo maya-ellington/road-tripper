@@ -13,9 +13,8 @@
     <div class="container">
         <h1 class="text-light">Road Tripper</h1>
     </div>    
-    <a href="/trips/all">View All Trips</a>
+    <a href="/trips">View All Trips</a>
         <% if (user) { %>
-          <a href="/">Add New Starting Point</a>
           <a href="/logout">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src=""></a>
