@@ -20,6 +20,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const tripsBeginRouter = require('./routes/tripsBegin');
 const tripsRouter = require('./routes/trips');
+const tripRouter = require('./routes/trip');
 
 
 // view engine setup
@@ -54,7 +55,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/api', tripsBeginRouter); 
 app.use('/trips', tripsRouter);
-
+app.use('/', tripRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

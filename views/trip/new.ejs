@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 
-<div>Road Trip Start/End: </div>
+<h3>tripTitle</h3>
 
-<h3>trip title here</h3>
-
-<form action="/trips/<%=trips._id %>/new" method="POST">
+<form id="new-form" action="trip/" method="POST">
+    <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
+    <input type="text" name="tripStartEnd" placeholder="From where to where?">
   <label>Road Trip Stops:</label>
   <input type="text" name="stopsEnRoute">
   <label>Total Drive Hours:</label>
@@ -13,6 +13,7 @@
   <input type="number" name="tripDays">
   <label>Road Trip Details/Story:</label>
   <input type="text" name="story">
-
+  <input type="submit" value="Add Road Trip">
+</form>
 
 <%- include('../partials/footer') %>

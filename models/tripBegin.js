@@ -1,16 +1,6 @@
 const mongoose = require("mongoose");
 const geoCoder = require("../utils/geocoder");
 
-// const tripSchema = new Schema({
-//     tripHours: {type: Number},
-//     tripDays: {type: Number},
-//     stopsEnRoute: [String],
-//     story: {type: String},
-//   }, {
-//     timestamps: true
-//   });
-
-
 const TripBeginSchema = new mongoose.Schema({
   address: {
     type: String,
@@ -35,7 +25,7 @@ const TripBeginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-//   tripDetails: tripSchema
+//   trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}]
 });
 
 // Before saving, convert address to geoCode

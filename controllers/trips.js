@@ -1,17 +1,16 @@
-const Trip = require('../models/TripBegin');
+const TripsBegin = require('../models/TripBegin');
 // const TripBegin = require('../models/tripBegin');
 
 module.exports = {
     // create
     index,
-    show, 
-    // new: newTripDetail
+    show
 }
 
 
 function index(req, res) {
 
-    Trip.find({}, function (err, trips) {
+    TripsBegin.find({}, function (err, trips) {
         res.render("trips/index", {
           trips,
           title: "All Trips",
@@ -20,11 +19,11 @@ function index(req, res) {
   }
   
   function show(req, res) {
-    Trip.findById(req.params.id)
+    TripsBegin.findById(req.params.id)
     // .populate('tripDetails') 
     .exec(function(err, trip) {
       // Native MongoDB approach 
-      Trip.find(
+      TripsBegin.find(
        function(err, trips) {
          console.log(trips);
          res.render('trips/show', {
@@ -35,12 +34,6 @@ function index(req, res) {
     });
   }
 
-
-  //NOT CORRECT...
-//   function newTripDetail(req, res) {
-//     res.render("trips/:id/new", { title: "Add Trip Details", trip });
-//   }
-  
 
 // function create(req, res) {
 

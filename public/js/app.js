@@ -20,7 +20,7 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3>${feature.properties.tripTitle}</h3><p><a href='/trips/${feature.properties.tripId}'>View Trip</a></p><p><a href='/trips/${feature.properties.tripId}/new'>Add Trip Details</a></p>`
+    `<h3>${feature.properties.tripTitle}</h3><p><a href='${feature.properties.tripId}/trip'>View All Trips</a></p><p><a href='/${feature.properties.tripId}/new'>Add New Trip</a></p>`
   )
   .addTo(map);
 });
@@ -90,7 +90,7 @@ console.log(tripsBegin, 'tripsBegin')
 // Handle user input
 const form = document.getElementById("form");
 let tripBegin = document.getElementById("tripBegin");
-let tripTitle = document.getElementById("tripTitle");
+let tripTitle = document.getElementById("tripBegin");
 
 // Send POST to API to add trips begin locations
 async function addTripBegin(e) {
