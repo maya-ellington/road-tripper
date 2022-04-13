@@ -29,6 +29,7 @@ function index(req, res) {
   }
 
   function create(req, res) {
+    // tripBegin.
     const trip = new Trip(req.body);
     trip.save(function (err) { // mongoose talking 
     //   console.log(err, " this err");
@@ -43,7 +44,7 @@ function index(req, res) {
 
   function show(req, res) {
     Trip.findById(req.params.id)
-    // .populate('tripDetails') 
+    // .populate('trip') 
     .exec(function(err, trip) {
       // Native MongoDB approach 
       Trip.find(

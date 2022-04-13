@@ -19,7 +19,7 @@ require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const tripsBeginRouter = require('./routes/tripsBegin');
-const tripsRouter = require('./routes/trips');
+const allTripsRouter = require('./routes/allTrips');
 const tripRouter = require('./routes/trip');
 
 
@@ -54,7 +54,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/api', tripsBeginRouter); 
-app.use('/trips', tripsRouter);
+app.use('/allTrips', allTripsRouter);
 app.use('/', tripRouter);
 
 // invalid request, send 404 page

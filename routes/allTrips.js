@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const tripsCtrl = require('../controllers/trips');
+const allTripsCtrl = require('../controllers/allTrips');
 // const isLoggedIn = require('../config/auth');
 
-router.get('/', tripsCtrl.index);
-router.get('/:id', tripsCtrl.show);
+router.get('/', allTripsCtrl.index);
+// router.get('/:id', tripsCtrl.show);
 // router.get(':id/', tripsCtrl.showTrip);
 
 // router.get('/:id/new', isLoggedIn, tripsCtrl.new);

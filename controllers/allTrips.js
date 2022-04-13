@@ -1,39 +1,39 @@
 const TripsBegin = require('../models/TripBegin');
-// const TripBegin = require('../models/tripBegin');
+const Trip = require('../models/Trip');
 
 module.exports = {
     // create
     index,
-    show
+    // show
 }
 
 
 function index(req, res) {
 
-    TripsBegin.find({}, function (err, trips) {
-        res.render("trips/index", {
+    Trip.find({}, function (err, trips) {
+        res.render("allTrips/index", {
           trips,
           title: "All Trips",
         });
     });
   }
   
-  function show(req, res) {
-    TripsBegin.findById(req.params.id)
-    // .populate('tripDetails') 
-    .exec(function(err, trip) {
-      // Native MongoDB approach 
-      TripsBegin.find(
-       function(err, trips) {
-         console.log(trips);
-         res.render('trips/show', {
-           title: 'Trip Detail', trip
-         });
-       }
-     );
-    });
-  }
 
+  // function show(req, res) {
+  //   TripsBegin.findById(req.params.id)
+  //   .populate('trip') //trip property created
+  //   .exec(function(err, tripBegin) {
+  //     // Native MongoDB approach 
+  //     Trip.find(
+  //      function(err, trip) {
+  //        console.log(trip);
+  //        res.render('allTrips/show', {
+  //          title: 'Trip Detail', tripBegin, trip
+  //        });
+  //      }
+  //    );
+  //   });
+  // }
 
 // function create(req, res) {
 

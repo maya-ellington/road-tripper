@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<% if (trip.tripStartEnd === null){ %>
+    <div>Road Trip Starting Point: </div>
+    <div><%= trip.tripTitle %></div>
+    <h2>No Road Trip Added Yet</h2>
+<% } %>
+
+<% trips.forEach(function(t) { %>
+<section id="show-page">
+    <div>Road Trip Starting Point: </div>
+    <div><%= t.tripTitle %></div>
+    <div>Road Trip Start/End: </div>
+    <div><%= t.tripStartEnd %></div>
+    <div>Road Trip Stops: </div>
+    <div><%= t.tripStops %></div>
+    <div>Total Drive Hours: </div>
+    <div><%= t.tripHours %></div>
+    <div>Total Trip Days: </div>
+    <div><%= t.tripDays %></div>
+    <div>Trip Details/Story: </div>
+    <div><%= t.tripStory %></div>
+</section>
+<% } %>
+  
+<%- include('../partials/footer') %>
