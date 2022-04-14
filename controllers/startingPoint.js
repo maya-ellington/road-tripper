@@ -63,20 +63,21 @@ function show(req, res) {
   });
 }
 
-//   function show(req, res) {
-//     // Trip.findById(req.params.id)
-//     // // .populate('trip')
-//     // .exec(function(err, trip) {
-//       // Native MongoDB approach
-//       Trip.find({},
-//        function(err, trip) {
-//          console.log(trip);
-//          res.render('trips/show', {
-//            title: 'Trip Detail', trip
-//          });
-//        }
-//      );
-//     }
+  // function show(req, res) {
+  //   TripBegin.find({tripBegin})
+  //   .populate('trip')
+  //   .exec(function(err, trip) {
+  //     // Native MongoDB approach
+  //     Trip.find({},
+  //      function(err, trip) {
+  //        console.log(trip);
+  //        res.render('trips/show', {
+  //          title: 'Trip Detail', trip
+  //        });
+  //      }
+  //    );
+  //   }
+  // }
 
 function newTrip(req, res) {
   StartingPoint.find({}, function (err, trip) {
@@ -88,18 +89,23 @@ function newTrip(req, res) {
   });
 }
 
-//TRIP DETAIL RETURNING NULL
+
 async function create(req, res) {
   req.body.tripBegin = req.params.id; 
 
-  // startingPoint.userPosting = req.user._id;
+  
   // TripBegin.findById(req.params.id, function(err, startPoint) {
     // console.log(startingPoint)
     // console.log(startPoint)
 
     // startPoint.tripDetail.push(startingPoint);
     // console.log(startPoint)
+    req.body.user = req.user._id;
+		req.body.userName = req.user.name;
+		req.body.userAvatar = req.user.avatar;
+    
     const startingPoint = await StartingPoint.create(req.body);
+ 
     console.log(startingPoint)
     // startPoint.save(function (err) {
       // mongoose talking
