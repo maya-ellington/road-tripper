@@ -24,5 +24,11 @@
     </form>
   <% } %>
 
+  <% if (user && user._id.equals(trip.user)) { %>
+    <a href="/allTrips/<%= trip._id %>/edit">
+      <button type="submit">EDIT TRIP</button>
+    </a>
+  <% } %>
+
   
 <%- include('../partials/footer') %>

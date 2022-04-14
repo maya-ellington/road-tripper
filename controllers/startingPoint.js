@@ -1,12 +1,12 @@
 const StartingPoint = require("../models/startingPoint");
-const TripBegin = require("../models/TripBegin");
+const TripBegin = require("../models/tripBegin");
 
 module.exports = {
   create,
   index,
   new: newTrip,
-  // edit,
-  // update,
+  edit,
+  update,
   delete: deleteTrip,
 };
 
@@ -18,33 +18,39 @@ function deleteTrip(req, res){
   )
 }
 
-// function edit(req, res) {
-//   StartingPoint.findOne(
-//     { _id: req.params.id, userPosting: req.user._id },
-//     function (err, tripDb) {
-//       if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
-//       res.render(`/${StartingPoint._id}/edit`, { tripDb });
-//     }
-//   );
-// }
+function edit(req, res) {
+  StartingPoint.findOne(
+    { _id: req.params.id},
+    function (err, tripDb) {
+      if (err || !tripDb) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
+      res.render(`allTrips/${StartingPoint._id}/edit`, { tripDb });
+    }
+  );
+}
 
-// function update(req, res) {
-//   StartingPoint.findOneAndUpdate(
-//     { _id: req.params.id, userPosting: req.user._id },
-//     req.body,
-//     { new: true },
-//     function (err, trip) {
-//       if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
-//       res.redirect(`${StartingPoint._id}/${trip._id}`);
-//     }
-//   );
-// }
+function update(req, res) {
+  StartingPoint.findOneAndUpdate(
+    { _id: req.params.id, user: req.user._id },
+    req.body,
+    { new: true },
+    function (err, trip) {
+      if (err || !trip) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
+      res.redirect(`${StartingPoint._id}/${trip._id}`);
+    }
+  );
+}
 
 //adjust so index only shows
 function index(req, res) {
-  StartingPoint.find({}, function (err, trip) {
+  StartingPoint.find({'tripBegin': req.params.id}, function (err, trips) {
+    // const tripBeginsId = req.params.id;
+    console.log(req.params.id, 'req.params.id<-----')
+    console.log(trips, 'trip<-----')
+    
+    // console.log(trips.tripBegin.id(req.params.id))
     res.render("startingPoint/index", {
-      trip,
+      trips,
+      // tripId,
       title: "All Road Trips",
     });
   });
@@ -96,18 +102,5 @@ async function create(req, res) {
     console.log(startingPoint)
     // startPoint.save(function (err) {
       // mongoose talking
-      res.redirect(`/view/${startingPoint._id}`);
+      res.redirect(`/allTrips/${startingPoint._id}`);
   };
-
-
-//   function create(req, res) {
-//     // tripBegin.
-//     const trip = new Trip(req.body);
-//     trip.save(function (err) { // mongoose talking
-//     //   console.log(err, " this err");
-//       if (err) return res.redirect("trip/new");
-//       console.log(trip);
-//       // for now, redirect right back to new.ejs
-//       res.redirect("/:id/trip");
-//     });
-// }

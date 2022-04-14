@@ -1,4 +1,4 @@
-const TripBegin = require('../models/TripBegin');
+const TripBegin = require('../models/tripBegin');
 const StartingPoint = require('../models/startingPoint');
 
 module.exports = {
