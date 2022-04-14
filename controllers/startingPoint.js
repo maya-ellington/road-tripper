@@ -7,16 +7,16 @@ module.exports = {
   new: newTrip,
   // edit,
   // update,
-  // delete: deleteTrip,
+  delete: deleteTrip,
 };
 
-// function deleteTrip(req, res){
-//   StartingPoint.findOneAndDelete(
-//     { _id: req.params.id, userPosting: req.user._id }, function(err) {
-//       res.redirect('/')
-//     }
-//   )
-// }
+function deleteTrip(req, res){
+  StartingPoint.findOneAndDelete(
+    { _id: req.params.id, user: req.user._id }, function(err) {
+      res.redirect('/')
+    }
+  )
+}
 
 // function edit(req, res) {
 //   StartingPoint.findOne(

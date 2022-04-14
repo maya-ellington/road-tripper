@@ -19,7 +19,7 @@
 </section>
 
 <% if (user && user._id.equals(trip.user)) { %>
-    <form action="/reviews/<%= trip._id %>?_method=DELETE" method="POST">
+    <form action="/allTrips/<%= trip._id %>?_method=DELETE" method="POST">
       <button type="submit">DELETE TRIP</button>
     </form>
   <% } %>

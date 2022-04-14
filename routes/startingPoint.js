@@ -11,7 +11,7 @@ router.post('/:id/view', startingPointCtrl.create);
 //how to deal w more than one id for the route???
 // router.get('/:id/edit', startingPointCtrl.edit); //id for starting point & trip??
 // router.put('/:id', startingPointCtrl.update);
-// router.post('/:id', startingPointCtrl.delete);
+router.delete('/allTrips/:id', startingPointCtrl.delete);
 
 
 module.exports = router;
