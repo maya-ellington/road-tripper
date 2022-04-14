@@ -1,10 +1,10 @@
-const TripsBegin = require('../models/TripBegin');
+const TripBegin = require('../models/TripBegin');
 const Trip = require('../models/Trip');
 
 module.exports = {
     // create
     index,
-    // show
+    show
 }
 
 
@@ -19,21 +19,18 @@ function index(req, res) {
   }
   
 
-  // function show(req, res) {
-  //   TripsBegin.findById(req.params.id)
-  //   .populate('trip') //trip property created
-  //   .exec(function(err, tripBegin) {
-  //     // Native MongoDB approach 
-  //     Trip.find(
-  //      function(err, trip) {
-  //        console.log(trip);
-  //        res.render('allTrips/show', {
-  //          title: 'Trip Detail', tripBegin, trip
-  //        });
-  //      }
-  //    );
-  //   });
-  // }
+  function show(req, res) {
+   Trip.findById(req.params.id)
+   .exec(function(err, trip) {
+         res.render('allTrips/show', {
+           title: 'Trip Detail', trip
+      
+       }
+     );
+    });
+  }
+
+
 
 // function create(req, res) {
 

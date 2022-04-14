@@ -9,9 +9,7 @@
      
     <% trip.forEach(function(t) { %>
       <tr>
-        <td><%= t.tripStartEnd %></td>
-        <td><a href="/trip/<%= t._id %>">DETAILS</a></td>
-        <!-- <td><a href="/trips/t._id/new">ADD/EDIT TRIP DETAILS</a></td> -->
+        <td><a href="/trip/<%= t._id %>"><%= t.tripStartEnd %></a></td>
       <% }); %>
     </tbody>
   </table>

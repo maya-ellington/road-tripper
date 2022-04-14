@@ -23,6 +23,10 @@ const TripBeginSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  tripTitle: {
+    type: String,
+    required: true,
+  },
   trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}]
 });
 

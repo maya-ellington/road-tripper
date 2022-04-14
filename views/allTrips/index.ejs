@@ -9,8 +9,9 @@
     <!-- need to change details link to go to specific trip id! -->
   <% trips.forEach(function(t) { %>
     <tr>
-      <td><%= t.tripStartEnd %></td>
-      <td><a href="/allTrips/<%= t._id %>">DETAILS</a></td>
+      <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
+      <td><%= t.tripHours %></td>
+      
       <!-- <td><a href="/trips/t._id/new">ADD/EDIT TRIP DETAILS</a></td> -->
     <% }); %>
   </tbody>

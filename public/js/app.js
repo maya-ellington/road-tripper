@@ -50,7 +50,7 @@ console.log(data, 'data')
 
   return tripsBegin;
 }
-console.log('something')
+// console.log('something')
 // Show trips begin locations on map
 async function showMap() {
     console.log('im here')
