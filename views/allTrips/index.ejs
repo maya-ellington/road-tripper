@@ -6,16 +6,17 @@
     </tr>
   </thead>
   <tbody>
-    <!-- need to change details link to go to specific trip id! -->
+
   <% trips.forEach(function(t) { %>
     <tr>
       <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
-      <td><%= t.tripHours %></td>
-      
-      <!-- <td><a href="/trips/t._id/new">ADD/EDIT TRIP DETAILS</a></td> -->
+    </tr>
     <% }); %>
   </tbody>
 </table>
-    
+<% if (trips.length === 0) {%>
+  <h1>No Trips Added Yet!</h1>
+<% } %>
+
   
 <%- include('../partials/footer') %>
