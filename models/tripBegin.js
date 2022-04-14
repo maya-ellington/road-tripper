@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const TripBeginSchema = new mongoose.Schema({
   address: {
     type: String,
-    required: [true, "Add a road trip starting point"],
+    // required: [true, "Add a road trip starting point"],
   },
   location: {
     type: {
@@ -27,7 +27,7 @@ const TripBeginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  tripDetail: [{type: Schema.Types.ObjectId, ref: 'StartingPoint'}]
+//   tripDetail: [{type: Schema.Types.ObjectId, ref: 'StartingPoint'}]
 });
 
 // Before saving, convert address to geoCode

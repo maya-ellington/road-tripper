@@ -20,7 +20,7 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3>${feature.properties.tripTitle}</h3><p><a href='/view'>View All Trips</a></p><p><a href='/new'>Add New Trip</a></p>`
+    `<h3>${feature.properties.tripTitle}</h3><p><a href='/view'>View All Trips</a></p><p><a href='${feature.properties.tripId}/new'>Add New Trip</a></p>`
   )
   .addTo(map);
 });

@@ -6,40 +6,40 @@ module.exports = {
   index,
   show,
   new: newTrip,
-  edit,
-  update,
-  delete: deleteTrip,
+  // edit,
+  // update,
+  // delete: deleteTrip,
 };
 
-function deleteTrip(req, res){
-  StartingPoint.findOneAndDelete(
-    { _id: req.params.id, userPosting: req.user._id }, function(err) {
-      res.redirect('/')
-    }
-  )
-}
+// function deleteTrip(req, res){
+//   StartingPoint.findOneAndDelete(
+//     { _id: req.params.id, userPosting: req.user._id }, function(err) {
+//       res.redirect('/')
+//     }
+//   )
+// }
 
-function edit(req, res) {
-  StartingPoint.findOne(
-    { _id: req.params.id, userPosting: req.user._id },
-    function (err, tripDb) {
-      if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
-      res.render(`/${StartingPoint._id}/edit`, { tripDb });
-    }
-  );
-}
+// function edit(req, res) {
+//   StartingPoint.findOne(
+//     { _id: req.params.id, userPosting: req.user._id },
+//     function (err, tripDb) {
+//       if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
+//       res.render(`/${StartingPoint._id}/edit`, { tripDb });
+//     }
+//   );
+// }
 
-function update(req, res) {
-  StartingPoint.findOneAndUpdate(
-    { _id: req.params.id, userPosting: req.user._id },
-    req.body,
-    { new: true },
-    function (err, trip) {
-      if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
-      res.redirect(`${StartingPoint._id}/${trip._id}`);
-    }
-  );
-}
+// function update(req, res) {
+//   StartingPoint.findOneAndUpdate(
+//     { _id: req.params.id, userPosting: req.user._id },
+//     req.body,
+//     { new: true },
+//     function (err, trip) {
+//       if (err || !book) return res.redirect(`/${StartingPoint._id}`); //unsure of redirect
+//       res.redirect(`${StartingPoint._id}/${trip._id}`);
+//     }
+//   );
+// }
 
 //adjust so index only shows
 function index(req, res) {
@@ -57,14 +57,9 @@ function show(req, res) {
   // .populate('trip')
   .exec(function(err, trip) {
     // Native MongoDB approach
-    StartingPoint.find(
-     function(err, trip) {
-       console.log(trip);
-       res.render('startingPoint/show', {
+      res.render('startingPoint/show', {
          title: 'Trip Detail', trip
        });
-     }
-   );
   });
 }
 
@@ -94,23 +89,23 @@ function newTrip(req, res) {
 }
 
 //TRIP DETAIL RETURNING NULL
-function create(req, res) {
-  const startingPoint = new StartingPoint(req.body);
+async function create(req, res) {
+  req.body.tripBegin = req.params.id; 
+
   // startingPoint.userPosting = req.user._id;
-  TripBegin.findById(req.params.id, function(err, startPoint) {
-    console.log(TripBegin)
-    console.log(startPoint)
+  // TripBegin.findById(req.params.id, function(err, startPoint) {
+    // console.log(startingPoint)
+    // console.log(startPoint)
+
     // startPoint.tripDetail.push(startingPoint);
-    startPoint.save(function (err) {
+    // console.log(startPoint)
+    const startingPoint = await StartingPoint.create(req.body);
+    console.log(startingPoint)
+    // startPoint.save(function (err) {
       // mongoose talking
-      //   console.log(err, " this err");
-      if (err) return res.redirect('/new');
-      // console.log(trip);
-      // for now, redirect right back to new.ejs
-      res.redirect('/view');
-    });
-  });
-}
+      res.redirect(`/view/${startingPoint._id}`);
+  };
+
 
 //   function create(req, res) {
 //     // tripBegin.

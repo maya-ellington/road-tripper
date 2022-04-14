@@ -10,6 +10,8 @@ const startingPointSchema = new Schema({
     // user: {type: Schema.Types.ObjectId, ref: 'User'},
     // userName: String,
     // userAvatar: String
+    tripBegin: [{type: Schema.Types.ObjectId, ref: 'TripBegin'}]
+
   }, {
     timestamps: true
   });
