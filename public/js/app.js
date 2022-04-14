@@ -2,7 +2,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoibWF5YXBhcGF5YTciLCJhIjoiY2wxc3puN3Y2MmQ5MDNjanhtMTM1a2dyNiJ9.qGWA5EHxq-7X2G5woYkxEA";
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/streets-v11",
+  style: "mapbox://styles/mayapapaya7/cl1z8ip6e000114mdguvvxpka",
   center: [-98.5795, 39.8283],
   zoom: 3.5,
 });
@@ -20,7 +20,7 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3>${feature.properties.tripTitle}</h3><p><a href='/startingPoint/${feature.properties.tripId}'>View All Trips</a></p><p><a href='startingPoint/${feature.properties.tripId}/new'>Add New Trip</a></p>`
+    `<h3>${feature.properties.tripTitle}</h3><p><a href='/view'>View All Trips</a></p><p><a href='/new'>Add New Trip</a></p>`
   )
   .addTo(map);
 });
@@ -53,9 +53,7 @@ console.log(data, 'data')
 // console.log('something')
 // Show trips begin locations on map
 async function showMap() {
-    console.log('im here')
   let tripsBegin = await getTripsBegin();
-console.log(tripsBegin, 'tripsBegin')
   map.on("load", () => {
     map.addSource("api", {
       type: "geojson",
@@ -64,17 +62,18 @@ console.log(tripsBegin, 'tripsBegin')
         features: tripsBegin,
       },
     });
-
+// map.addImage("../images/eco-car.png", 
+// )
     map.addLayer({
       id: "points",
       type: "symbol",
       minzoom: 0,
       source: "api",
       layout: {
-        "icon-image": "marker-15",
+        "icon-image": "car-svgrepo-com",
         "icon-allow-overlap": true,
         "text-allow-overlap": true,
-        "icon-size": 3,
+        "icon-size": 0.1,
         "text-field": "{city}",
         "text-offset": [0, 0.9],
         "text-anchor": "top",
@@ -85,6 +84,7 @@ console.log(tripsBegin, 'tripsBegin')
     });
   });
 }
+//car-svgrepo-com
 
 
 // Handle user input
