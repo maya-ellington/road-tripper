@@ -96,7 +96,6 @@ function newTrip(req, res) {
 //TRIP DETAIL RETURNING NULL
 function create(req, res) {
   const startingPoint = new StartingPoint(req.body);
-  console.log(startingPoint)
   // startingPoint.userPosting = req.user._id;
   TripBegin.findById(req.params.id, function(err, startPoint) {
     console.log(TripBegin)

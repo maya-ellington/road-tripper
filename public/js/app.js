@@ -4,7 +4,7 @@ var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mayapapaya7/cl1z8ip6e000114mdguvvxpka",
   center: [-98.5795, 39.8283],
-  zoom: 3.5,
+  zoom: 3.3,
 });
 
 // Pop-up on Click
@@ -50,7 +50,7 @@ console.log(data, 'data')
 
   return tripsBegin;
 }
-// console.log('something')
+
 // Show trips begin locations on map
 async function showMap() {
   let tripsBegin = await getTripsBegin();
@@ -62,8 +62,8 @@ async function showMap() {
         features: tripsBegin,
       },
     });
-// map.addImage("../images/eco-car.png", 
-// )
+
+
     map.addLayer({
       id: "points",
       type: "symbol",
@@ -77,9 +77,6 @@ async function showMap() {
         "text-field": "{city}",
         "text-offset": [0, 0.9],
         "text-anchor": "top",
-      },
-      paint: {
-        "text-color": "#41178f",
       },
     });
   });

@@ -11,15 +11,39 @@
 </head>
 <body>
     <nav class="bg-dark p-2">
-    <div class="container">
-        <h1 class="text-light">Road Tripper</h1>
-    </div>    
-    <a href="/">Road Trip Map</a>
-    <a href="/allTrips">View All Trips</a>
-        <% if (user) { %>
-          <a href="/logout">LOG OUT</a>
-        <% } else { %>
-          <a href="/auth/google" class="login">LOG IN&nbsp;<img src=""></a>
+      <div class="navbar-brand text-light" href="#">Road Tripper</div>    
+      <a href="/">Road Trip Map</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <a href="/allTrips">View All Trips</a>
+          <% if (user) { %>
+            <a href="/logout">LOG OUT</a>
+          <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src=""></a>
         <% } %>
       </nav>
 

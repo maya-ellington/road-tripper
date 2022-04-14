@@ -7,9 +7,9 @@ const startingPointSchema = new Schema({
     tripDays: {type: Number},
     stopsEnRoute: [String],
     story: {type: String},
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
-    userAvatar: String
+    // user: {type: Schema.Types.ObjectId, ref: 'User'},
+    // userName: String,
+    // userAvatar: String
   }, {
     timestamps: true
   });
