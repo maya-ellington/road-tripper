@@ -40,6 +40,6 @@ body {
   grid-gap: 1rem;
 }
 
-#show-page div:nth-child(even) {
+#show-page div:nth-child(odd) {
   font-weight: bold;
 }

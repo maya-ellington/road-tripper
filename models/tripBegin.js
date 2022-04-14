@@ -27,7 +27,7 @@ const TripBeginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}]
+  tripDetail: [{type: Schema.Types.ObjectId, ref: 'StartingPoint'}]
 });
 
 // Before saving, convert address to geoCode
