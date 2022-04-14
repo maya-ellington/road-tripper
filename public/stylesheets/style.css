@@ -14,14 +14,6 @@ h1 {
   height: 500px;
   margin-top: 50px;
 }
-/* .marker {
-  background-image: url('../images/eco-car.png');
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-} */
 
 #footer {
   position: absolute;
@@ -54,4 +46,19 @@ body {
 
 #show-page div:nth-child(odd) {
   font-weight: bold;
+}
+
+
+table {
+  font-size: 20px;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
 }

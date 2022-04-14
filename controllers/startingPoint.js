@@ -4,7 +4,6 @@ const TripBegin = require("../models/TripBegin");
 module.exports = {
   create,
   index,
-  show,
   new: newTrip,
   // edit,
   // update,
@@ -48,18 +47,6 @@ function index(req, res) {
       trip,
       title: "All Road Trips",
     });
-  });
-}
-
-//this can maybe be commented out
-function show(req, res) {
-  StartingPoint.findById(req.params.id)
-  // .populate('trip')
-  .exec(function(err, trip) {
-    // Native MongoDB approach
-      res.render('startingPoint/show', {
-         title: 'Trip Detail', trip
-       });
   });
 }
 

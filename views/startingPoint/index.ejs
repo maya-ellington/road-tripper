@@ -9,7 +9,9 @@
      
     <% trip.forEach(function(t) { %>
       <tr>
-        <td><a href="/startingPoint/<%= t._id %>"><%= t.tripStartEnd %></a></td>
+        <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
+        <td><i><%= t.userName %></i>---</td>
+        <td><i><%= t.createdAt %></i></td>
       <% }); %>
     </tbody>
   </table>
@@ -17,5 +19,7 @@
   <% if (trip.length === 0) {%>
     <h1>No Trips Added Yet!</h1>
   <% } %>
+
+
 
 <%- include('../partials/footer') %>

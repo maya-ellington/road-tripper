@@ -10,6 +10,8 @@
   <% trips.forEach(function(t) { %>
     <tr>
       <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
+      <td><i><%= t.userName %></i></td>
+      <td><i><%= t.createdAt %></i></td>
     </tr>
     <% }); %>
   </tbody>

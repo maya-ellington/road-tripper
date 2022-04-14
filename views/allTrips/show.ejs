@@ -12,8 +12,17 @@
     <div><%= trip.tripDays %></div>
     <div>Trip Details/Story: </div>
     <div><%= trip.story %></div>
+    <div>Road Tripper: </div>
+    <div><%= trip.userName %></div>
+    <div>Posted: </div>
+    <div><%= trip.createdAt %></div>
 </section>
 
+<% if (user && user._id.equals(trip.user)) { %>
+    <form action="/reviews/<%= trip._id %>?_method=DELETE" method="POST">
+      <button type="submit">DELETE TRIP</button>
+    </form>
+  <% } %>
 
   
 <%- include('../partials/footer') %>
