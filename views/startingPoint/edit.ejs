@@ -1,24 +1,28 @@
 <%- include('../partials/header') %>
 
-<h3>Edit Road Trip</h3>
-
-<form id="new-form" action="/<%=startingPointId%>?_method=PUT" method="POST">
-  <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
-  <input
-    type="text"
-    name="tripStartEnd"
-    placeholder="From where to where?"
-    value="<%=tripDb.tripStartEnd%>"
-  />
-  <label>Road Trip Destinations/Stops:</label>
-  <input type="text" name="stopsEnRoute" value="<%=tripDb.stopsEnRoute%>" />
-  <label>Total Drive Hours:</label>
-  <input type="number" name="tripHours" value="<%=tripDb.tripHours%>" />
-  <label>Total Trip Days:</label>
-  <input type="number" name="tripDays" value="<%=tripDb.tripDays%>" />
-  <label>Road Trip Details/Story:</label>
-  <input type="text" name="story" value="<%=tripDb.story%>" />
-  <input type="submit" value="Update"/>
-</form>
-
+<div id="newedit-background">
+    <div id="newedit">
+      <h1>Edit Road Trip</h1>
+      <form id="new-form" action="/<%=startingPointId%>?_method=PUT" method="POST">
+        <label>Title your trip <i>(i.e. 'Berkeley to Portland')</i></label>
+        <input
+          type="text"
+          name="tripStartEnd"
+          placeholder="From where to where?"
+          value="<%=tripDb.tripStartEnd%>"
+        />
+        <label>List Road Trip Destinations/Stops:</label>
+        <input type="text" name="stopsEnRoute" value="<%=tripDb.stopsEnRoute%>" />
+        <label>Total Drive Hours:</label>
+        <input type="number" name="tripHours" value="<%=tripDb.tripHours%>" />
+        <label>Total Trip Days:</label>
+        <input type="number" name="tripDays" value="<%=tripDb.tripDays%>" />
+        <label>Road Trip Details/Story: <i>(i.e. highlights, important info to share, season/weather, etc.)</i></label>
+        <input type="text" style="height: 125px;" name="story" value="<%=tripDb.story%>" />
+        <label></label>
+        <input type="submit" value="UPDATE"/>
+      </form>
+    </div>
+  </div>
+  
 <%- include('../partials/footer') %>

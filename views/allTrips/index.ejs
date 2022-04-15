@@ -1,21 +1,21 @@
 <%- include('../partials/header') %>
-<table>
-  <thead>
-    <tr>
-      <th>All Road Trips</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% trips.forEach(function(t) { %>
-    <tr>
-      <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
-      <td><i><%= t.userName %></i></td>
-      <td><i><%= t.createdAt %></i></td>
-    </tr>
-    <% }); %>
-  </tbody>
-</table>
+<div id="index-all-background">
+  <div id="index-all">
+    <h1>All Road Trips</h1>
+    <table>
+      <tbody>
+        <% trips.forEach(function(t) { %>
+        <tr>
+          <td><a href="/allTrips/<%= t._id %>"><%= t.tripStartEnd %></a></td>
+          <td><i><%= t.userName %></i></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
 
-<% if (trips.length === 0) {%>
-<h1>No Trips Added Yet!</h1>
-<% } %> <%- include('../partials/footer') %>
+    <% if (trips.length === 0) {%>
+    <h1>No Trips Added Yet!</h1>
+    <% } %> 
+  </div>
+</div>
+<%- include('../partials/footer') %>

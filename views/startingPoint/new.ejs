@@ -1,20 +1,27 @@
 <%- include('../partials/header') %>
 
-<h3>tripTitle</h3>
-
-
-<form id="new-form" action="/<%=startingPointId%>/view/" method="POST">
-    <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
-    <input type="text" name="tripStartEnd" placeholder="From where to where?">
-  <label>Road Trip Destinations/Stops:</label>
-  <input type="text" name="stopsEnRoute">
-  <label>Total Drive Hours:</label>
-  <input type="number" name="tripHours">
-  <label>Total Trip Days:</label>
-  <input type="number" name="tripDays">
-  <label>Road Trip Details/Story:</label>
-  <input type="text" name="story">
-  <input type="submit" value="Add Road Trip">
-</form>
+<div id="newedit-background">
+  <div id="newedit">
+    <h1>New Trip</h1>
+    <form id="new-form" action="/<%=startingPointId%>/view/" method="POST">
+      <label>Title your trip <i>(i.e. 'Berkeley to Portland')</i></label>
+      <input
+        type="text"
+        name="tripStartEnd"
+        placeholder="From where to where?"
+      />
+      <label>List Road Trip Destinations/Stops:</label>
+      <input type="text" name="stopsEnRoute"/>
+      <label>Total Drive Hours:</label>
+      <input type="number" name="tripHours"/>
+      <label>Total Trip Days:</label>
+      <input type="number" name="tripDays"/>
+      <label>Road Trip Details/Story: <i>(i.e. highlights, important info to share, season/weather, etc.)</i></label>
+      <input type="text" style="height: 125px;" name="story"/>
+      <label></label>
+      <input type="submit" value="ADD ROAD TRIP"/>
+    </form>
+  </div>
+</div>
 
 <%- include('../partials/footer') %>

@@ -2,22 +2,24 @@
 
 
     <section id="add-location">
-                <p>
-                    This map shows where people have started their road trip journeys! 
-                    <br>Click locations to see where they went, and login to add your road trip journey to the map.
+                <p style="padding:15px; text-align: center; font-size: 1.2rem;"> 
+                    This map shows Road Trip starting points, where road trippers like you began there journies on the road. 
+                    <br>For trip inspiration, click on the map to explore road trips!
+                    <br><b>Login</b> to add your road trip journey to the map too.
                 </p>
             </div>
             </div>
         <section>
-                <form id="form">
+                <form id="form" style="text-align:center"
                     <% if (user) { %>
                         <div>
-                            <label>Where did you start your road trip? <i>(To ensure added correctly, add both the city and state!)</i></label>
+                            <label>Don't see your starting point on the map? Add your city! <i>(To ensure it's added correctly, add both the city and state!)</i></label>
                             <input id="tripBegin" type="text" placeholder="City/Town, State">
+                            <button class="submit-buttons" type="submit" style="margin-bottom:30px;">
+                                Add Your Starting Point!
+                            </button>
                         </div>
-                        <button type="submit" style="margin-left:15px; margin-bottom:30px;">
-                            Add Your Road Trip!
-                        </button>
+                        
                         <% } %>
                 </form> 
            

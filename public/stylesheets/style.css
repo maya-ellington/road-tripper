@@ -1,14 +1,12 @@
-*{
-  font-family: Algerian;
-}
 
 html, body {
   overflow: auto;
+  height: 100vh;
 }
 body {
   min-height: 100vh;
   margin: 0;
-    padding: 0;
+  padding: 0;
 }
 
 h3 {
@@ -24,14 +22,14 @@ h3 {
 
 #map {
   width: 100vw;
-  height: 600px;
+  height: 610px;
 }
 
 #footer {
   position:absolute;
   bottom:0;
   width:100%;
-  padding: 12px 
+  padding: 11px 
 }
 
 body {
@@ -81,6 +79,7 @@ table td {
 }
 
 #header {
+  font-family: Algerian;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -93,4 +92,76 @@ table td {
 
 #add-location {
   height: 202px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.submit-buttons {
+  width: 100%;
+  background-color: rgb(76, 136, 192);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#index-all-background {
+  height: 100vh;
+  background-image: url('https://pixabay.com/get/g53cd58cd607b52d98c3f84b1ad1b9209fb412ae513c31da6e9d6f87f4647bf88620c3f3b6ab917e9283789c2b2d299447f970ccb4e097582290178e05e6048b804ee7dfe2cb61344db24a24843b04c0d_1920.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: 0%;
+}
+
+#index-all {
+  background-color: white;
+  opacity: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto; 
+  padding: 20px;
+  transform: translate(0, 50%);
+}
+
+#show-background {
+  height: 100vh;
+  background-image: url('https://pixabay.com/get/gb99601d5d31571a1e86876189ee0b4afe6b86659240ebf7e11dcd4ac36bf679711029f6e8d5ce3dcf43c2e000b16a074b27d78e6490342b2653882094085a7c3f468518b5477ecfb34c2182e1198271e_1920.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: 0%;
+}
+
+#show {
+  background-color: white;
+  opacity: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto; 
+  padding: 20px;
+  transform: translate(0, 50%);
+}
+
+#newedit-background {
+  height: 100vh;
+  background-image: url('https://pixabay.com/get/g511f8d55e27f2e23d1263b40af4194095e6710b5a904c0057d6f561d3a5f467a2c3580e85fd4953fd3d6f981d4528733b2dd0d2bc720546d07667216109c6bca2687448edd2af801015ae557813cb066_1920.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: 0%;
+}
+
+#newedit {
+  background-color: white;
+  opacity: 90%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto; 
+  padding: 20px;
+  transform: translate(0, 50%);
 }
