@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const geoCoder = require("../utils/geocoder");
 
-
 const TripBeginSchema = new mongoose.Schema({
   address: {
     type: String,

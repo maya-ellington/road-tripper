@@ -7,31 +7,29 @@ var map = new mapboxgl.Map({
   zoom: 3.3,
 });
 
-// Pop-up on Click
-map.on('click', (event) => {
-    // If the user clicked on one of your markers, get its information.
-    const features = map.queryRenderedFeatures(event.point, {
-      layers: ['points'] // replace with your layer name
-    });
-    if (!features.length) {
-      return;
-    }
-    const feature = features[0];
+// Pop-up on Click, built into MapBox tools
+map.on("click", (event) => {
+  // If the user clicked on one of your markers, get its information.
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ["points"],
+  });
+  if (!features.length) {
+    return;
+  }
+  const feature = features[0];
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
-  .setLngLat(feature.geometry.coordinates)
-  .setHTML(
-    `<h3>${feature.properties.tripTitle}</h3><p><a href='/${feature.properties.tripId}/view'>View All Trips</a></p><p><a href='${feature.properties.tripId}/new'>Add New Trip</a></p>`
-  )
-  .addTo(map);
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML(
+      `<h3>${feature.properties.tripTitle}</h3><p><a href='/${feature.properties.tripId}/view'>View All Trips</a></p><p><a href='${feature.properties.tripId}/new'>Add New Trip</a></p>`
+    )
+    .addTo(map);
 });
-
 
 // Get trips begin locations from API
 async function getTripsBegin() {
-    
   const res = await fetch("/api/trips");
   const data = await res.json();
-console.log(data, 'data')
+  console.log(data, "data");
   let tripsBegin = data.data.map((tripBegin) => ({
     type: "Feature",
     geometry: {
@@ -43,15 +41,15 @@ console.log(data, 'data')
     },
     properties: {
       city: tripBegin.location.city,
-      tripTitle: tripBegin.tripTitle, 
-      tripId: tripBegin._id
+      tripTitle: tripBegin.tripTitle,
+      tripId: tripBegin._id,
     },
   }));
 
   return tripsBegin;
 }
 
-// Show trips begin locations on map
+// Show trips begin locations on map, renders map & points
 async function showMap() {
   let tripsBegin = await getTripsBegin();
   map.on("load", () => {
@@ -63,7 +61,6 @@ async function showMap() {
       },
     });
 
-
     map.addLayer({
       id: "points",
       type: "symbol",
@@ -74,15 +71,12 @@ async function showMap() {
         "icon-allow-overlap": true,
         "text-allow-overlap": true,
         "icon-size": 0.1,
-        "text-field": "{city}",
         "text-offset": [0, 0.9],
         "text-anchor": "top",
       },
     });
   });
 }
-//car-svgrepo-com
-
 
 // Handle user input
 const form = document.getElementById("form");
@@ -92,16 +86,14 @@ let tripTitle = document.getElementById("tripBegin");
 // Send POST to API to add trips begin locations
 async function addTripBegin(e) {
   e.preventDefault();
-console.log('addtrip')
+  console.log("addtrip");
   if (tripBegin.value === "") {
-    tripBegin.placeholder =
-      "Location where trip begins";
-      console.log('i am here')
+    tripBegin.placeholder = "Location where trip begins";
+    console.log("i am here");
     return;
   }
 
   try {
-    // console.log(tripBegin.value, 'try')
     tripBegin.placeholder = "Loading...";
 
     const res = await fetch("/api", {
@@ -109,46 +101,36 @@ console.log('addtrip')
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({address: tripBegin.value, tripTitle: tripTitle.value}),
+      body: JSON.stringify({
+        address: tripBegin.value,
+        tripTitle: tripTitle.value,
+      }),
     });
 
     if (res.status === 400) {
       throw Error;
-    }
-
-    else if (res.status === 200) {
-        // console.log(tripBegin.value, 'res status')
-        // console.log(res)
-    //     console.log(tripBegin.placeholder)
-    //   tripBegin.style.border = "none";
+    } else if (res.status === 200) {
       tripBegin.placeholder = "Succesfully added!";
-      tripTitle.placeholder = "Succesfully added!";
 
-      tripBegin.value = ""; //reset value
+      //Reset value
+      tripBegin.value = "";
       tripTitle.value = "";
-    //   console.log(tripBegin.value, 'after empty string')
-    //   tripBegin.placeholder = "new entry";
 
       // Retrieve updated data
       let allTrips = await getTripsBegin();
-      
-    //   console.log(tripBegin.value, '151')
 
       map.getSource("api").setData({
         type: "FeatureCollection",
         features: allTrips,
       });
-    } 
+    }
   } catch (err) {
     tripBegin.placeholder = err;
     return;
   }
 }
-// console.log(tripTitle, 'here')
+
 form.addEventListener("submit", addTripBegin);
-
-
-
 
 // Render TripsBegin locations
 showMap();

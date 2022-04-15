@@ -1,34 +1,28 @@
 <%- include('../partials/header') %>
 
-
 <section id="show-page">
-    <div>Road Trip Start/End: </div>
-    <div><%= trip.tripStartEnd %></div>
-    <div>Road Trip Destinations/Stops: </div>
-    <div><%= trip.stopsEnRoute %></div>
-    <div>Total Drive Hours: </div>
-    <div><%= trip.tripHours %></div>
-    <div>Total Trip Days: </div>
-    <div><%= trip.tripDays %></div>
-    <div>Trip Details/Story: </div>
-    <div><%= trip.story %></div>
-    <div>Road Tripper: </div>
-    <div><%= trip.userName %></div>
-    <div>Posted: </div>
-    <div><%= trip.createdAt %></div>
+  <div>Road Trip Start/End:</div>
+  <div><%= trip.tripStartEnd %></div>
+  <div>Road Trip Destinations/Stops:</div>
+  <div><%= trip.stopsEnRoute %></div>
+  <div>Total Drive Hours:</div>
+  <div><%= trip.tripHours %></div>
+  <div>Total Trip Days:</div>
+  <div><%= trip.tripDays %></div>
+  <div>Trip Details/Story:</div>
+  <div><%= trip.story %></div>
+  <div>Road Tripper:</div>
+  <div><%= trip.userName %></div>
+  <div>Posted:</div>
+  <div><%= trip.createdAt %></div>
 </section>
 
 <% if (user && user._id.equals(trip.user)) { %>
-    <form action="/allTrips/<%= trip._id %>?_method=DELETE" method="POST">
-      <button type="submit">DELETE TRIP</button>
-    </form>
-  <% } %>
-
-  <% if (user && user._id.equals(trip.user)) { %>
-    <a href="/allTrips/<%= trip._id %>/edit">
-      <button type="submit">EDIT TRIP</button>
-    </a>
-  <% } %>
-
-  
-<%- include('../partials/footer') %>
+<form action="/allTrips/<%= trip._id %>?_method=DELETE" method="POST">
+  <button type="submit">DELETE TRIP</button>
+</form>
+<% } %> <% if (user && user._id.equals(trip.user)) { %>
+<a href="/allTrips/<%= trip._id %>/edit">
+  <button type="submit">EDIT TRIP</button>
+</a>
+<% } %> <%- include('../partials/footer') %>
