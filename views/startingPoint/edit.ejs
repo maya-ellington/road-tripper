@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h3>tripTitle</h3>
+
+
+<form id="new-form" action="/<%=startingPointId%>?_method=PUT" method="POST">
+    <label>Title your trip <i>(ex. 'Berkeley to Portland')</i></label>
+    <input type="text" name="tripStartEnd" placeholder="From where to where?" value="<%=tripDb.tripStartEnd%>">
+  <label>Road Trip Destinations/Stops:</label>
+  <input type="text" name="stopsEnRoute" value="<%=tripDb.stopsEnRoute%>">
+  <label>Total Drive Hours:</label>
+  <input type="number" name="tripHours" value="<%=tripDb.tripHours%>">
+  <label>Total Trip Days:</label>
+  <input type="number" name="tripDays" value="<%=tripDb.tripDays%>">
+  <label>Road Trip Details/Story:</label>
+  <input type="text" name="story" value="<%=tripDb.story%>">
+  <input type="submit" value="Update">
+</form>
+
+<%- include('../partials/footer') %>
