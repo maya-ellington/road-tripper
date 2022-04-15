@@ -19,6 +19,7 @@
 https://trello.com/invite/b/nUJVFqvG/c1177e873c7cf077fcf626ca5e0d2912/project-2-roadtripper
 
 ## Next Steps
+- Add complexity to starting point trip models (enter dates of travel, etc)
 - Add search capabilities to easily find results of destinations/trip details
 - Add "My Trips" page
 - Add additional interactive map for each individual starting point, where user can add all location points from their entire route
