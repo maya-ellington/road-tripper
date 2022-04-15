@@ -54,6 +54,7 @@ async function getTripsBegin() {
 async function showMap() {
   let tripsBegin = await getTripsBegin();
   map.on("load", () => {
+    map.resize();
     map.addSource("api", {
       type: "geojson",
       data: {

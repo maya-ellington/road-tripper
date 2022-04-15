@@ -2,6 +2,15 @@
   font-family: Algerian;
 }
 
+html, body {
+  overflow: auto;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+    padding: 0;
+}
+
 h3 {
   text-align: center;
 }
@@ -15,14 +24,14 @@ h3 {
 
 #map {
   width: 100vw;
-  height: 500px;
-  margin-top: 50px;
+  height: 600px;
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding: 12px 
 }
 
 body {
@@ -80,4 +89,8 @@ table td {
 #road-tripper{
   display: flex;
   align-items: flex-end;
+}
+
+#add-location {
+  height: 202px;
 }
