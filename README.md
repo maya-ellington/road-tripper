@@ -22,6 +22,9 @@ https://trello.com/invite/b/nUJVFqvG/c1177e873c7cf077fcf626ca5e0d2912/project-2-
 - Add "My Trips" page
 - Add additional interactive map for each individual starting point, where user can add all location points from their entire route
 - Add comment functionality on road trip posts
+- Integrate trip routing, to estimate drive hours
+
+
 ## Wireframe 
 ![Screen Shot 2022-04-15 at 12 30 51 AM](https://user-images.githubusercontent.com/42722554/163539835-b778b930-23d2-481e-92ea-ff9906a49e6f.png)
 ![Screen Shot 2022-04-15 at 12 31 07 AM](https://user-images.githubusercontent.com/42722554/163539845-bb580779-eaf3-4c81-8849-0117908fa3b1.png)
