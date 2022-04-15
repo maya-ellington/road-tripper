@@ -15,15 +15,17 @@
     <title>RoadTripper</title>
   </head>
   <body>
-    <nav class="bg-dark p-2">
-      <div class="navbar-brand text-light" href="/">Road Tripper</div>
-      <a href="/">Map</a>
-      <a href="/allTrips">View All Trips</a>
+    <nav id="header" class="bg-dark p-2" >
+      <div id="road-tripper"><img id="header-img" src="/images/road-trip.png"><h1 class="text-light">Road Tripper</h1></div>
+      <a class="text-light" style="text-decoration:none" href="/">Map</a></div>
+      <div><a class="text-light" style="text-decoration:none" href="/allTrips">View All Trips</a></div>
       <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
+      <a class="text-light" href="/logout">LOG OUT</a>
       <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="" /></a>
+      <a class="text-light" href="/auth/google" class="login">LOG IN&nbsp;<img src="" /></a>
       <% } %>
+    </div>
     </nav>
-  </body>
+    </body>
+
 </html>

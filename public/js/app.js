@@ -5,6 +5,7 @@ var map = new mapboxgl.Map({
   style: "mapbox://styles/mayapapaya7/cl1z8ip6e000114mdguvvxpka",
   center: [-98.5795, 39.8283],
   zoom: 3.3,
+  renderWorldCopies: false,
 });
 
 // Pop-up on Click, built into MapBox tools
