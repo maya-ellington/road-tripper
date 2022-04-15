@@ -4,12 +4,6 @@
 
 ### Road Tripper is designed to be an interactive map space where users can keep track of their road trip journies as well as inspire others to explore similar routes. With Mapbox GL JS integration, users are able to add "Starting Point" locations to the map, and build their road trip posts from those locations. 
 
-
-## Wireframe 
-![Screen Shot 2022-04-15 at 12 30 51 AM](https://user-images.githubusercontent.com/42722554/163539835-b778b930-23d2-481e-92ea-ff9906a49e6f.png)
-![Screen Shot 2022-04-15 at 12 31 07 AM](https://user-images.githubusercontent.com/42722554/163539845-bb580779-eaf3-4c81-8849-0117908fa3b1.png)
-![Screen Shot 2022-04-15 at 12 31 17 AM](https://user-images.githubusercontent.com/42722554/163539854-d9dd3d0b-da9e-4295-9983-b3bf1c34f43a.png)
-
 ## Technologies used: 
   - Javascript
   - Express
@@ -28,6 +22,11 @@ https://trello.com/invite/b/nUJVFqvG/c1177e873c7cf077fcf626ca5e0d2912/project-2-
 - Add "My Trips" page
 - Add additional interactive map for each individual starting point, where user can add all location points from their entire route
 - Add comment functionality on road trip posts
+## Wireframe 
+![Screen Shot 2022-04-15 at 12 30 51 AM](https://user-images.githubusercontent.com/42722554/163539835-b778b930-23d2-481e-92ea-ff9906a49e6f.png)
+![Screen Shot 2022-04-15 at 12 31 07 AM](https://user-images.githubusercontent.com/42722554/163539845-bb580779-eaf3-4c81-8849-0117908fa3b1.png)
+![Screen Shot 2022-04-15 at 12 31 17 AM](https://user-images.githubusercontent.com/42722554/163539854-d9dd3d0b-da9e-4295-9983-b3bf1c34f43a.png)
+
 
 ## Initial Planning ERD
 ![Screen Shot 2022-04-08 at 3 27 08 PM](https://user-images.githubusercontent.com/42722554/162543883-546670d4-497c-43b6-9f60-1a983700b1eb.png)
