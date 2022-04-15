@@ -1,3 +1,4 @@
+//Access Token for MapBox GL JS integration set up
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWF5YXBhcGF5YTciLCJhIjoiY2wxc3puN3Y2MmQ5MDNjanhtMTM1a2dyNiJ9.qGWA5EHxq-7X2G5woYkxEA";
 var map = new mapboxgl.Map({
@@ -9,6 +10,7 @@ var map = new mapboxgl.Map({
 });
 
 // Pop-up on Click, built into MapBox tools
+// .setHTML links are routes for tripsBegin
 map.on("click", (event) => {
   // If the user clicked on one of your markers, get its information.
   const features = map.queryRenderedFeatures(event.point, {
@@ -108,6 +110,7 @@ async function addTripBegin(e) {
         tripTitle: tripTitle.value,
       }),
     });
+    //Would like to figure out how to pass TripTitle to utilize on show pages
 
     if (res.status === 400) {
       throw Error;

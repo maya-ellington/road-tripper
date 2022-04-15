@@ -68,7 +68,6 @@ async function create(req, res) {
   req.body.tripBegin = req.params.id;
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
-  req.body.userAvatar = req.user.avatar;
   const startingPoint = await StartingPoint.create(req.body);
   res.redirect(`/allTrips/${startingPoint._id}`);
 }
