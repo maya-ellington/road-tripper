@@ -1,7 +1,8 @@
 //Access Token for MapBox GL JS integration set up
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWF5YXBhcGF5YTciLCJhIjoiY2wxc3puN3Y2MmQ5MDNjanhtMTM1a2dyNiJ9.qGWA5EHxq-7X2G5woYkxEA";
-var map = new mapboxgl.Map({
+  const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mayapapaya7/cl203dkw7001415lo0lgipkm5",
   center: [-98.5795, 39.8283],
@@ -9,8 +10,10 @@ var map = new mapboxgl.Map({
   renderWorldCopies: false,
 });
 
+
 // Pop-up on Click, built into MapBox tools
 // .setHTML links are routes for tripsBegin
+
 map.on("click", (event) => {
   // If the user clicked on one of your markers, get its information.
   const features = map.queryRenderedFeatures(event.point, {
